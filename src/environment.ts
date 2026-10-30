@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import tezosMark from './tezos-mark.svg?raw';
 
 export function makeEnvironment(scene: THREE.Scene) {
   const root = new THREE.Group(); scene.add(root);
@@ -41,9 +43,13 @@ export function makeEnvironment(scene: THREE.Scene) {
     m.scale.set(.9+(i%3)*.5,1.6+(i%5)*.42,.8+(i%4)*.3);m.rotation.set(i*.7,i*1.2,i*.3);
   }
   for(const r of [3.1,3.2,8.9,9])ring(r,.018,gold,0,.063,0);
-  const sigil=new THREE.Group();root.add(sigil);
-  for(const s of [-1,1]){const line=box(.055,.012,2.1,gold,s*.44,.067,0);line.rotation.y=s*-.45;}
-  box(.055,.012,1.9,gold,0,.067,1.8);
+  // A weathered Tezos inlay is the only explicit identity inside the arena.
+  const sigilMaterial=new THREE.MeshStandardMaterial({color:0xc7ad7e,metalness:.75,roughness:.5,emissive:0x8b692c,emissiveIntensity:.36});
+  const sigilShapes=new SVGLoader().parse(tezosMark).paths.flatMap(path=>path.toShapes());
+  const sigilGeometry=new THREE.ExtrudeGeometry(sigilShapes,{depth:1,bevelEnabled:false,curveSegments:18});
+  sigilGeometry.translate(-80,-111,0);
+  const sigil=add(sigilGeometry,sigilMaterial,0,.082,0);
+  sigil.rotation.x=-Math.PI/2;sigil.scale.set(.019,-.019,.019);sigil.castShadow=false;
   for(let i=0;i<24;i++){
     const a=i*Math.PI/12,r=9.5;const m=box(.04,.018,i%3===0?.65:.25,gold,Math.sin(a)*r,.08,Math.cos(a)*r);m.rotation.y=a;
   }
@@ -117,6 +123,7 @@ export function makeEnvironment(scene: THREE.Scene) {
     crystal.rotation.y=t*.24;crystal.position.y=5.3+Math.sin(t*.8)*.15;
     halo.rotation.z=t*.09;halo2.rotation.z=-t*.13;
     coreLight.intensity=65+Math.sin(t*.7)*8;
+    sigilMaterial.emissiveIntensity=.36+Math.sin(t*.7)*.08;
     for(let i=0;i<moteCount;i++){
       positions[i*3]=basePositions[i*3]+Math.sin(t*.12+i)*.5;
       positions[i*3+1]=((basePositions[i*3+1]+t*(.025+(i%4)*.009)+3)%12)-3;

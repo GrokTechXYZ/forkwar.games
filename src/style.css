@@ -13,3 +13,5 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.scene-loading span{opacity:.6}}
 
 @media(max-width:700px){.release{font-size:8px}.eyebrow{font-size:8px}.launch-note{font-size:9px;letter-spacing:2px}.hud-top{font-size:8px;letter-spacing:1px}.footer{font-size:7px}.footer-manifesto>span{font-size:7px}.icon-control{font-size:8px;min-height:44px}.watch-button{font-size:9px}.scene-controls{bottom:20px}.cinema .scene-controls{bottom:20px}}
+
+.footer-manifesto>.tezos-origin{display:inline-flex;align-items:center;gap:9px;color:#b7b9aa;font-size:8px;letter-spacing:1.7px}.tezos-origin img{display:block;opacity:.9;width:11px;height:16px}.battle-label small{font-size:8px;letter-spacing:1.7px}@media(max-width:700px){.footer-manifesto>.tezos-origin{font-size:7px;letter-spacing:1px;gap:7px}.battle-label small{font-size:6px;letter-spacing:1px}}

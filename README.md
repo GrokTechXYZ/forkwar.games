@@ -19,7 +19,7 @@ npm run build
 
 Push to `main` to build and deploy `dist/` through GitHub Actions. Repository **Settings → Pages → Source** must be **GitHub Actions**. Asset paths are relative, so the same build works under the project URL or a custom domain.
 
-The source is self-contained. It is independent of the private game prototype and contains no game data, progression, economy, lore, or settlement code.
+The source is self-contained. It is independent of the private game prototype and contains no game data, progression, economy, or settlement code. Only a few teaser references are public: Athens, cycles, self-amendment, and a Tezos sigil in the arena. The symbol is sourced from the header mark on https://tezos.com/.
 
 ## Interaction and accessibility
 
