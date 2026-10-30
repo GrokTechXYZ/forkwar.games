@@ -32,7 +32,7 @@ The source is self-contained. It is independent of the private game prototype an
 
 ## Custom domain
 
-The production domain is `https://forkwar.games/`. GitHub Pages is configured with the apex domain; `www.forkwar.games` redirects to it once DNS propagates. Enable HTTPS enforcement in the repository's Pages settings after GitHub issues the domain certificate.
+The production domain is `https://forkwar.games/`. GitHub Pages is configured with the apex domain and HTTPS enforcement is enabled. The `www.forkwar.games` alias redirects to the apex once DNS and its certificate propagate.
 
 `public/CNAME` is included in the deployment artifact, and `index.html` uses the custom domain for canonical and social URLs. With Actions deployments, the repository's Pages custom-domain setting is authoritative.
 
