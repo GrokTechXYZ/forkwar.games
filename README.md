@@ -32,13 +32,18 @@ The source is self-contained. It is independent of the private game prototype an
 
 ## Custom domain
 
-After the DNS is ready, set `forkwar.games` as the GitHub Pages custom domain, then enable HTTPS. Replace parked apex A records with GitHub's four addresses:
+The production domain is `https://forkwar.games/`. GitHub Pages is configured with the apex domain; `www.forkwar.games` redirects to it once DNS propagates. Enable HTTPS enforcement in the repository's Pages settings after GitHub issues the domain certificate.
 
-```text
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
+`public/CNAME` is included in the deployment artifact, and `index.html` uses the custom domain for canonical and social URLs. With Actions deployments, the repository's Pages custom-domain setting is authoritative.
 
-Set `www` as a CNAME to `primate411.github.io`. Preserve unrelated mail and verification records. Update canonical and social-image URLs in `index.html` after the domain is connected.
+Migadu hosts DNS; GoDaddy remains the registrar. Web records:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | primate411.github.io |
+
+Preserve unrelated mail and verification records. The GitHub project URL redirects to the custom domain after the Pages domain setting is applied.
