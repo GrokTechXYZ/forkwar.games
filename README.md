@@ -13,6 +13,8 @@ npm run dev
 
 ## Publish
 
+Repository: [GrokTechXYZ/forkwar.games](https://github.com/GrokTechXYZ/forkwar.games).
+
 ```sh
 npm run build
 ```
@@ -44,6 +46,6 @@ Migadu hosts DNS; GoDaddy remains the registrar. Web records:
 | A | @ | 185.199.109.153 |
 | A | @ | 185.199.110.153 |
 | A | @ | 185.199.111.153 |
-| CNAME | www | primate411.github.io |
+| CNAME | www | groktechxyz.github.io |
 
 Preserve unrelated mail and verification records. The GitHub project URL redirects to the custom domain after the Pages domain setting is applied.
